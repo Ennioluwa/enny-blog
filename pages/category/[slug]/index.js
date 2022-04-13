@@ -1,6 +1,6 @@
 import { Categories, Loader, PostCard } from '../../../components'
 import { getCategories, getCategoryPost } from '../../../services'
-
+import { useRouter } from 'next/router'
 const index = ({ posts }) => {
   const router = useRouter()
   if (router.isFallback) {
