@@ -1,8 +1,11 @@
-import { Categories, PostCard } from '../../../components'
+import { Categories, Loader, PostCard } from '../../../components'
 import { getCategories, getCategoryPost } from '../../../services'
 
 const index = ({ posts }) => {
-  console.log(posts)
+  const router = useRouter()
+  if (router.isFallback) {
+    return <Loader />
+  }
   return (
     <div className="container mx-auto mb-8 px-10">
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">

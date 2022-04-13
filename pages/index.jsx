@@ -24,7 +24,6 @@ const Home = ({ posts }) => {
             <Categories />
           </div>
         </div>
-        <div></div>
       </div>
     </div>
   )

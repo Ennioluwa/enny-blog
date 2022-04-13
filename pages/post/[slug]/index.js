@@ -4,14 +4,20 @@ import {
   Categories,
   Comments,
   CommentsForm,
+  Loader,
   PostDetail,
   PostWidget,
 } from '../../../components'
 import { getPost, getPosts } from '../../../services'
 import { AdjacentPosts } from '../../../sections'
+
 const index = ({ post }) => {
   const router = useRouter()
+  if (router.isFallback) {
+    return <Loader />
+  }
   const slug = router.query.slug
+
   return (
     <div className=" container mx-auto mb-8 px-10">
       <AdjacentPosts slug={slug} />
@@ -51,6 +57,6 @@ export async function getStaticPaths() {
 
   return {
     paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
-    fallback: false,
+    fallback: true,
   }
 }
